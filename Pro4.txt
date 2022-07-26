@@ -1,0 +1,26 @@
+package java1;
+
+public class Pro4 {
+
+	public static void main(String[] args) {
+		 parent parentobj=new parent();
+	        child childobj=new child();
+	        parentobj.parentmethod();
+	        childobj.childmethod();
+	        childobj.parentmethod();
+	}
+
+}
+
+class parent{
+    public void parentmethod()
+    {
+        System.out.println("This is parent class.");
+    }
+}
+class child extends parent{
+    public void childmethod()
+    {
+        System.out.println("This is child class.");
+    }
+}

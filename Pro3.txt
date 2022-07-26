@@ -1,0 +1,57 @@
+package java1;
+
+import java.util.*;
+
+public class Pro3 {
+
+	  public static void main(String[] args) {
+	        Member obj=new Member();
+	        obj.getdata();
+	        obj.printSalary();
+	    }
+
+}
+
+class Employee extends Member
+{
+    
+    Scanner sc=new Scanner(System.in);
+//    System.out.println("");
+    String specialization;
+}
+class Manager extends Member
+{
+    String department;
+}
+class Member
+{
+    public int age;
+    String name,address;
+    long pno;
+    double salary;
+    public void getdata(){
+        System.out.println("Please enter Name:");
+        Scanner sc=new Scanner(System.in);
+        String name=sc.nextLine();
+        System.out.println("Please enter Age:");
+        int age=sc.nextInt();
+        System.out.println("Please enter Phone Number:");
+        long pno=sc.nextLong();
+        sc.nextLine();
+        System.out.println("Please enter Address:");
+        String address=sc.nextLine();
+        System.out.println("Please enter Salary:");
+        Double salary=sc.nextDouble();
+        Employee emp=new Employee();
+        Manager man=new Manager();
+        System.out.println("Enter one for Employee.");
+        System.out.println("Enter two for Manager.");
+        sc.nextLine();
+        System.out.println("Please Enter Your Choice=");
+        String specialization=sc.nextLine();
+    }
+        public void printSalary()
+        {
+           System.out.println("Member's salary is "+age);
+        }
+}
