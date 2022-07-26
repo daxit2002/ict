@@ -1,0 +1,192 @@
+package java1;
+
+import java.util.*;
+
+public class Pro2 {
+	 public static void main(String[] args) {
+	        System.out.println("Time managment");
+	        Scanner sc=new Scanner(System.in);
+	        System.out.println("Please Enter the valid Month :");
+	        int month=sc.nextInt();
+	        System.out.println("Please Enter the valid Day :");
+	        int day=sc.nextInt();
+	        System.out.println("Please Enter the valid Year :");
+	        int year=sc.nextInt();
+	        if(month==1 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==2 && day>0 && day<=28 && year>999 && year<=9999)
+	        {
+	            if(day==28)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==3 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==4 && day>0 && day<=30 && year>999 && year<=9999)
+	        {
+	            if(day==30)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==5 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==6 && day>0 && day<=30 && year>999 && year<=9999)
+	        {
+	            if(day==30)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==7 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==8 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==9 && day>0 && day<=30 && year>999 && year<=9999)
+	        {
+	            if(day==30)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==10 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==11 && day>0 && day<=30 && year>999 && year<=9999)
+	        {
+	            if(day==30)
+	            {
+	                day=1;
+	                month=month+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else if(month==12 && day>0 && day<=31 && year>999 && year<=9999)
+	        {
+	            if(day==31)
+	            {
+	                day=1;
+	                month=1;
+	                year=year+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	            else
+	            {
+	                day=day+1;
+	                System.out.println("Next Day is "+day+"/"+month+"/"+year);
+	            }
+	        }
+	        else
+	        {
+	            System.out.println("Your entered date is not valid.");
+	        }
+	        // TODO code application logic here
+	    }
+
+
+}
