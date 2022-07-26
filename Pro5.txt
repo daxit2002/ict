@@ -1,0 +1,23 @@
+class rectangle{
+    int length,breadth;
+    public rectangle(int l,int b)
+    {
+        length=l;
+        breadth=b;
+    }
+    void print_area()
+    {
+        System.out.println("Area is "+(length*breadth));
+    }
+    void print_parimeter()
+    {
+        System.out.println("Perimeter is "+(2*(length+breadth)));
+    }
+}
+class square extends rectangle
+{
+    public square(int s)
+    {
+        super(s, s);
+    }
+}
