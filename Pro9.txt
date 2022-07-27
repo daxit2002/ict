@@ -1,0 +1,22 @@
+package java1;
+
+import java.util.*;
+
+public class Pro9 {
+
+	 public static void main(String[] args) {
+	        student obj=new student();
+	        obj.isEqual();
+	    }   
+	}
+	class student{
+	    public void isEqual()
+	    {
+	        Scanner sc=new Scanner(System.in);
+	        System.out.println("please enter first value");
+	        String s1 =sc.nextLine();
+	        System.out.println("please enter second value");
+	        String s2 =sc.nextLine();
+	        System.out.println(s1.equals(s2));
+	    }
+	}
