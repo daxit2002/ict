@@ -1,0 +1,36 @@
+package java1;
+
+public class Pro6 {
+
+	  public static void main(String[] args) {
+	        square sobj=new square();
+	        sobj.shamethod();
+	        sobj.recmethod();
+	    }
+
+}
+
+class shape{
+    public void shamethod()
+    {
+        System.out.println("This is shape.");
+    }
+}
+class rectangle extends shape{
+    public void recmethod() 
+    {
+        System.out.println("This is rectangular shape.");
+    }
+}
+class square extends rectangle{
+    public void squmethod()
+    {
+        System.out.println("This is square is a rectangle.");
+    }
+}
+class circle extends shape{
+    public void cirmethod()
+    {
+        System.out.println("This is circular shape.");
+    }
+}
