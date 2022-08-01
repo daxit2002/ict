@@ -1,0 +1,70 @@
+Question 9: Create a class Student with following operations1) create parameterized constructor to initialize the objects2) create a function isEqual() to check whether the two objects are equal or not which
+			returns the Boolean value and gets two objects
+			3) print the result in main method if objects are equals or not (take variables as your assumption)
+
+package ict;
+
+import java.util.Scanner;
+
+class student{
+    int roll_no;
+    String name;
+
+    public student(int roll_no, String name) {
+        this.roll_no = roll_no;
+        this.name = name;
+    }
+    
+    boolean isEqual(student s2){
+        
+        if(this.roll_no == s2.roll_no)
+            return true;
+        else
+            return false;
+}
+}
+public class Q9 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter student1 name:");
+        String sc1 = sc.next();
+        System.out.println("enter student1 roll no:");
+        int sc2 = sc.nextInt();
+        System.out.println("enter student1 name:");
+        String sr1 = sc.next();
+        System.out.println("enter student1 roll no:");
+        int sr2 = sc.nextInt();
+        student s1 = new student(sc2,sc1);
+        student s2 = new student(sr2,sr1);
+        
+        System.out.println(s1.isEqual(s2));
+        
+        boolean equal = s1.isEqual(s2);
+        
+        if (equal){
+            System.out.println("both student roll no are same");
+        }
+        else{
+            System.out.println("both student roll no are different");
+        }
+    }
+    
+}
+
+Output:-
+		enter student1 name:
+		daxit
+		enter student1 roll no:
+		39
+		enter student1 name:
+		daxit
+		enter student1 roll no:
+		39
+		true
+		both student roll no are same
