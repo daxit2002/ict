@@ -1,0 +1,70 @@
+Question 1: Write a Java program which initialization of earning of an employee. The
+			program should calculate the income tax to be paid by the employee as per the criteria
+			given below.
+			Slab Rate               IT Rate
+			Upto Rs. 50,000         Nil
+			Upto Rs.60,000          10% on additional amount
+			Upto Rs.1,50,000        20% on additional amount
+			Above Rs. 1,50,000      30% on additional amount
+			Result :- Income tax is .....................
+	
+	
+	package ict;
+
+	import java.util.*;
+
+	class employee{
+		String name;
+		float tax;
+		float salary;
+		
+		void tax() {
+		
+		if(salary<=50000) {
+				System.out.println(name +" incomtax is 0%");
+		}
+		else if(salary>50000 && salary<=60000){
+			tax=salary*10/100;
+			System.out.println(name+" incomtax  is 10% on addition amount"+tax);
+		}
+		else if(salary>60000 && salary<=150000){
+			tax=salary*20/100;
+			System.out.println(name+" incomtax  is 20% on addition amount"+tax);
+		}
+		else if(salary>=150000){
+			tax=salary*30/100;
+			System.out.println(name+" incomtax  is 30% on addition amount"+tax);
+		}
+		}
+	}
+
+	public class Q1 {
+
+		public static void main(String[] args) {
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("enter employ name:=");
+			String name = sc.nextLine();
+			
+			employee obj = new employee();
+			
+			obj.name=name;
+			System.out.println("enter employee salary");
+			int salary = sc.nextInt();
+			obj.salary =salary;
+			obj.tax();
+			
+		}
+
+	}
+	
+	Output:-
+		enter employ name:=
+		daxit
+		enter employee salary
+		30000
+		daxit incomtax is 0%
+
+
+
+
