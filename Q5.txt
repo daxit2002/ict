@@ -1,0 +1,70 @@
+Question 5: Create a class named 'Rectangle' with two data members 'length' and
+			'breadth' and two methods to print the area and perimeter of the rectangle respectively.
+			Its constructor having parameters for length and breadth is used to initialize length and
+			breadth of the rectangle. Let class 'Square' inherit the 'Rectangle' class with its
+			constructor having a parameter for its side (suppose s) calling the constructor of its
+			parent class as 'super(s,s)'. Print the area and perimeter of a rectangle and a square.
+
+package ict;
+
+import java.util.*;
+
+class rectangle{
+    float length,breadth;
+
+    public rectangle(float length, float breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+    
+    void area(){
+        float ar = length * breadth;
+        System.out.println("area is "+ar);
+    }
+    void perimeter(){
+        float pr = 2 * (length + breadth);
+        System.out.println("perimeter is "+pr);
+    }
+}
+class square extends rectangle{
+    float side;
+
+    public square(float side) {
+        super(side,side);
+    }
+
+    
+}
+public class Q5 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter length of the rectangle:");
+        float ln = sc.nextFloat();
+        System.out.print("enter breadth of the rectangle:");
+        float br = sc.nextFloat();
+        rectangle r = new rectangle(ln,br);
+        r.area();
+        r.perimeter();
+        System.out.print("enter side of the square:");
+        float sd = sc.nextFloat();
+        square s = new square(sd);
+        s.area();
+        s.perimeter();
+    }
+    
+}
+
+
+Output:-		
+		enter length of the rectangle:3
+		enter breadth of the rectangle:3
+		area is 9.0
+		perimeter is 12.0
+		enter side of the square:2
+		area is 4.0
+		perimeter is 8.0
