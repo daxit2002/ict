@@ -1,0 +1,41 @@
+Question 14: Write a program to print the names of students by creating a Student
+			class. If no name is passed while creating an object of Student class, then the name
+			should be "Unknown", otherwise the name should be equal to the String value passed
+			while creating object of Student class (Make use of constructor).
+
+
+package ict;
+
+class student14{
+    String name;
+
+    public student14() {
+        this.name="unlnown";
+    }
+
+    public student14(String name) {
+        this.name = name;
+    }
+    void print(){
+        System.out.println("student name is "+name);
+    }
+    
+}
+public class Q14 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        student14 s1 = new student14("meet");
+        student14 s2 = new student14();
+        s1.print();
+        s2.print();
+    }
+    
+}
+
+Output:-
+		student name is meet
+		student name is unlnown
