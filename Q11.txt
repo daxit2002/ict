@@ -1,0 +1,47 @@
+Question 11: WAP in java to create Box class with parameterized constructor with an object argument
+			to initialize length, breadth and height also create a function volume which returns the volume
+			of the box and print it in main method.
+
+package ict;
+
+import java.util.Scanner;
+
+class box{
+
+    float lenght,breath,hight;
+
+    public box(float lenght, float breath, float hight) {
+        this.lenght = lenght;
+        this.breath = breath;
+        this.hight = hight;
+    }
+    
+    float volume(){
+        return lenght*breath*hight;
+    }
+}
+public class Q11 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("add the length:");
+        float ln = sc.nextFloat();
+        float br = sc.nextFloat();
+        float hg = sc.nextFloat();
+        box b1 = new box(ln,br,hg);
+        System.out.println("the volume is"+b1.volume());
+    }
+    
+}
+
+Output:-
+		add the length:
+		4
+		4
+		4
+		the volume is64.0
