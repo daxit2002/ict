@@ -1,0 +1,108 @@
+Question 13: Consider the example of vehicles like bicycle, car, bike........., they have
+			common functionalities. So we make an interface and put all these common
+			functionalities. And lets Bicycle, Bike, car ....etc implement all these functionalities in
+			their own class in their own way.
+
+package ict;
+
+interface vehicle{
+    public void start();
+    public void stop();
+    public void horn();
+    public void gear();
+}
+
+class bicycle implements vehicle{
+
+    public void start(){
+        System.out.println("starts the bicycle");
+    }
+    public void stop(){
+        System.out.println("stop the bicycle");
+    }
+    public void horn(){
+        System.out.println("horn the bicycle");
+    }
+    public void gear(){
+        System.out.println("change gear of the bicycle");
+    }
+    
+}
+class bike implements vehicle{
+
+    public void start(){
+        System.out.println("starts the bike");
+    }
+    public void stop(){
+        System.out.println("stop the bike");
+    }
+    public void horn(){
+        System.out.println("horn the bike");
+    }
+    public void gear(){
+        System.out.println("change gear of the bike");
+    }
+    
+}
+class car implements vehicle{
+
+    public void start(){
+        System.out.println("starts the car");
+    }
+    public void stop(){
+        System.out.println("stop the car");
+    }
+    public void horn(){
+        System.out.println("horn the car");
+    }
+    public void gear(){
+        System.out.println("change gear of the car");
+    }
+    
+}
+public class Q13 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        bicycle b1=new bicycle();
+        b1.start();
+        b1.stop();
+        b1.horn();
+        b1.gear();
+        System.out.println("\n");
+        bike b=new bike();
+        b.start();
+        b.stop();
+        b.horn();
+        b.gear();
+        System.out.println("\n");
+        car c=new car();
+        c.start();
+        c.stop();
+        c.horn();
+        c.gear();
+    }
+    
+}
+
+Output:-
+		starts the bicycle
+		stop the bicycle
+		horn the bicycle
+		change gear of the bicycle
+
+
+		starts the bike
+		stop the bike
+		horn the bike
+		change gear of the bike
+
+
+		starts the car
+		stop the car
+		horn the car
+		change gear of the car
