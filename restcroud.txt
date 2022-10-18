@@ -1,0 +1,303 @@
+session.java
+
+public class NewSessionBean implements NewSessionBeanLocal {
+
+    @PersistenceContext(unitName = "restPU")
+    private EntityManager em;
+
+    @Override
+    public List<CategoryMaster> showAll() {
+        List<CategoryMaster> cat =em.createNamedQuery("CategoryMaster.findAll").getResultList();
+        return cat;
+    }
+    
+
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
+
+    @Override
+    public void insert(String name) {
+        
+        CategoryMaster cat = new CategoryMaster();
+        cat.setName(name);
+        em.persist(cat);
+        
+        
+    }
+    
+    public void persist(Object object) {
+        em.persist(object);
+    }
+
+    @Override
+    public void delete(Integer Id) {
+        CategoryMaster c1  =(CategoryMaster) em.createNamedQuery("CategoryMaster.findById").setParameter("id", Id).getSingleResult();
+        em.remove(c1);
+    }
+
+    @Override
+    public CategoryMaster search(Integer id) {
+        CategoryMaster c1 = em.find(CategoryMaster.class,id);
+        return c1;
+    }
+
+    @Override
+    public void update(Integer id,String name) {
+        
+        CategoryMaster c1 = (CategoryMaster)em.find(CategoryMaster.class, id);
+        c1.setName(name);
+        em.merge(c1);
+        
+    }
+
+
+
+NewSessionBeanLocal
+
+
+
+public interface NewSessionBeanLocal {
+
+    List<CategoryMaster> showAll();
+
+    void insert(String name);
+
+    void delete(Integer id);
+
+ 
+
+    CategoryMaster search(Integer id);
+
+    void update(Integer id, String name);
+    
+}
+
+
+
+rest
+
+
+public class GenericResource {
+
+    @EJB
+    NewSessionBeanLocal bean;
+    @Context
+    private UriInfo context;
+
+    /**
+     * Creates a new instance of GenericResource
+     */
+    public GenericResource() {
+    }
+
+    /**
+     * Retrieves representation of an instance of rest.GenericResource
+     *
+     * @return an instance of java.lang.String
+     */
+    @GET
+    @Path("show")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CategoryMaster> showAll() {
+        //TODO return proper representation object
+        return bean.showAll();
+    }
+
+    
+   
+    @POST
+    @Path("update/{name}/{id}")
+    public void update(@PathParam("name") String name, @PathParam("id") Integer id) {
+        //TODO return proper representation object
+        bean.update(id, name);
+    }
+    @POST
+    @Path("insert/{name}")
+    public void insert(@PathParam("name") String name) {
+        //TODO return proper representation object
+        bean.insert(name);
+    }
+    @DELETE
+    @Path("insert/{id}")
+    public void delete(@PathParam("id") Integer id) {
+        //TODO return proper representation object
+        bean.delete(id);
+    }
+    @GET
+    @Path("search/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public CategoryMaster search(@PathParam("id") Integer id) {
+        //TODO return proper representation object
+        return bean.search(id);
+    }
+
+
+    /**
+     * PUT method for updating or creating an instance of GenericResource
+     *
+     * @param content representation for the resource
+     */
+    @PUT
+    @Consumes(MediaType.TEXT_HTML)
+    public void putHtml(String content) {
+    }
+}
+
+
+
+managebean
+
+
+
+
+public class NewJSFManagedBean implements Serializable {
+        int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+        String name;
+        NewJerseyClient client = new NewJerseyClient();
+        Response rs;
+        List<CategoryMaster> cat ;
+        GenericType<List<CategoryMaster>> gen = new  GenericType<List<CategoryMaster>>(){};
+
+    public List<CategoryMaster> getCat() {
+        rs = client.showAll(Response.class);
+        cat = rs.readEntity(gen);
+        return cat;
+    }
+
+    public void setCat(List<CategoryMaster> cat) {
+        this.cat = cat;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void insert(){
+     
+            
+        client.insert(name);
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsf");
+            } catch (IOException ex) {
+                Logger.getLogger(NewJSFManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }
+    public void delete(Integer id){
+        client.delete(id);
+    }
+    public void update(){
+        client.update(name, id);
+          try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsf");
+            } catch (IOException ex) {
+                Logger.getLogger(NewJSFManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    public void search(Integer id){
+        CategoryMaster c1 = client.search(CategoryMaster.class, id);
+        setId(id);
+        name = c1.getName();
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("update.jsf");
+            } catch (IOException ex) {
+                Logger.getLogger(NewJSFManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    /**
+     * Creates a new instance of NewJSFManagedBean
+     */
+    public NewJSFManagedBean() {
+    }
+    
+}
+
+
+
+index.html
+
+
+
+
+<h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{newJSFManagedBean.cat}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{item.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="delete"/>
+                        </f:facet>
+                        <h:commandLink value="Delete" action="#{newJSFManagedBean.delete(item.id)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="update"/>
+                        </f:facet>
+                        <h:commandLink value="Update" action="#{newJSFManagedBean.search(item.id)}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+
+
+
+
+
+
+
+insert.htnl
+
+<h:body>
+        <h:form>
+        <h:inputText value="#{newJSFManagedBean.name}" />
+        <h:commandButton value="submit" action="#{newJSFManagedBean.insert()}"/>
+        </h:form>
+    </h:body>
+
+
+
+update.html
+
+
+ <h:form>
+            <h:inputHidden  value="#{newJSFManagedBean.id}"></h:inputHidden>
+            <h:inputText value="#{newJSFManagedBean.name}" />
+            <h:commandButton value="submit" action="#{newJSFManagedBean.update()}"/>
+        </h:form>
+
+
+
+
+
+
+
